@@ -27,7 +27,7 @@ function fit_mean_quantile(::Type{LogNormal{T}}, mean::Real, qp::QuantilePoint) 
     # solution of
     # (1) mean = exp(mu + sigma^2/2)
     # (2) upper = mu + sigmaFac sigma
-    # see R packaage lognorm inst/doc/coefLognorm.Rmd for derivation
+    # see R package lognorm inst/doc/coefLognorm.Rmd for derivation
     sigmaFac = quantile(Normal(), qp.p)
     m = log(mean)
     discr = sigmaFac^2 - 2 * (log(qp.q) - m)
@@ -44,7 +44,7 @@ function fit_mode_quantile(::Type{LogNormal{T}}, mode::Real, qp::QuantilePoint) 
     # solution of
     # (1) mle = exp(mu - sigma^2)
     # (2) upper = mu + sigmaFac sigma
-    # see R packaage lognorm inst/doc/coefLognorm.Rmd for derivation
+    # see R package lognorm inst/doc/coefLognorm.Rmd for derivation
     sigmaFac = quantile(Normal(), qp.p)
     m = log(mode)
     discr = sigmaFac^2 / 4 + (log(qp.q) - m)

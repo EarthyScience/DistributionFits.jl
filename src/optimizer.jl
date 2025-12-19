@@ -3,7 +3,7 @@
     OptimOptimizer <: AbstractDistributionFitOptimizer
     set_optimizer(::AbstractDistributionFitOptimizer) 
 
-`DistributionFits.jl` uses the following interface to opimize an univariate 
+`DistributionFits.jl` uses the following interface to optimize an univariate 
 function `f` on bounded interval `[lower,upper]`:
 
     optimize(f, ::AbstractDistributionFitOptimizer, lower, upper)
