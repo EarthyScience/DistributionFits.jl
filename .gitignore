@@ -1,9 +1,9 @@
 *.jl.*.cov
 *.jl.cov
 *.jl.mem
-/Manifest.toml
+/Manifest*.toml
 /docs/build/
-docs/Manifest.toml
+docs/Manifest*.toml
 
 /tmp/
 /jmd/*.ipynb
@@ -11,5 +11,4 @@ docs/Manifest.toml
 /jmd/*.md
 /jmd/figures/
 
-test/Manifest.toml
-Manifest-v1.11.toml
+test/Manifest*.toml
