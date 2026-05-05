@@ -8,7 +8,7 @@ The following functions are supported
 
 The following getters return a single moment or 
 throw an error if the moment has not been recorded (`>N`)
-- `mean(m)`: get the first momemnt, i.e. the mean
+- `mean(m)`: get the first moment, i.e. the mean
 - `var(m)`: get the second moment, i.e. the variance
 - `skewness(m)`: get the third moment, i.e. the skewness
 - `kurtosis(m)`: get the fourth moment, i.e.  the kurtosis
