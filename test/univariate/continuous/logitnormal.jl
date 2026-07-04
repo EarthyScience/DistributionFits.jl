@@ -134,3 +134,24 @@ end;
     #plot(d)
     #dln = LogitNormal(0f0,sqrt(2f0)); plot!(dln)
 end;
+
+@testset "shifloNormal_mode Float32" begin
+    d32 = shifloNormal_mode(1.0f0, 3.0f0, 1.5f0)
+    @test partype(d32) == Float32
+    @test mean(d32) isa Float32
+    # wait until fix in AffineDistribution is merged to Distributions.jl
+    # @test rand(d32) isa eltype(d32)
+    m = mode(d32)
+    @test m isa Float32
+    @test isapprox(m, 1.5, atol = 0.1)
+    dmin = minimum(d32)
+    @test dmin == 1.0
+    @test maximum(d32) == 3.0
+    @test scale(d32) == 3 - 1
+    @test scale(d32) isa Float32
+    @test location(d32) == 1.0
+    @test location(d32) isa Float32
+    #using StatsPlots
+    #plot(d32)
+    #dln = LogitNormal(0f0,sqrt(2f0)); plot!(dln)
+end;

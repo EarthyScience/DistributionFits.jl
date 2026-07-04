@@ -113,13 +113,13 @@ true
 """
 function fit_mode_flat(::Type{LogitNormal},
     mode::T,
-    ::Val{nTry} = Val(40);
+    ntry::Val{nTry} = Val(40);
     peakedness = 1) where {T <: Real, nTry}
-    fit_mode_flat(LogitNormal{T}, mode, Val(nTry); peakedness)
+    fit_mode_flat(LogitNormal{T}, mode, ntry; peakedness)
 end
 function fit_mode_flat(::Type{LogitNormal{T}},
     mode,
-    ::Val{nTry} = Val(40);
+    ntry::Val{nTry} = Val(40);
     peakedness = 1) where {T <: Real, nTry}
     mode == 0.5 && return (LogitNormal{T}(zero(T), sqrt(2) / peakedness))
     is_right = mode > 0.5
@@ -158,3 +158,22 @@ function shifloNormal(lower, upper)
     #dln * (upper-lower) + lower
     Distributions.AffineDistribution{T}(lower, (upper - lower), dln)
 end
+
+"""
+    shifloNormal_mode(lower,upper,mode; peakedness=1.1)
+
+Shifted LogitNormal where mode and peakedness are specified.    
+Note, that this requires optimization, while shifloNormal without mode
+is a closed form solution.
+"""
+function shifloNormal_mode(lower, upper, mode,
+    ntry::Val{nTry} = Val(40);
+    peakedness = 1.0) where {nTry}
+    lower, upper, mode = promote(lower, upper, mode / 1)
+    T = typeof(lower)
+    mode1 = (mode-lower)/(upper-lower)
+    dln = fit_mode_flat(LogitNormal{T}, mode1, ntry; peakedness)
+    #dln * (upper-lower) + lower
+    Distributions.AffineDistribution{T}(lower, (upper - lower), dln)
+end
+
