@@ -22,7 +22,7 @@ true
 
 If the parametric type is omitted, default Float64 is assumed, or inferred from
 other parameters of the fitting function.
-Since quantiles and median are rather sample-like measures than paraemter-like
+Since quantiles and median are rather sample-like measures than parameter-like
 measures, they do not influence the inferred parameter type.
 
 

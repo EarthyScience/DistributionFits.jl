@@ -62,8 +62,12 @@ p # hide
 A shifted and scaled version of this distribution can be
 used as a moother alternative to the Bounded uniform distribution.
 
+When no information on mode or peakedness is required, prefer the option
+without mode, because those does not require optimization.
+
 ```@docs
 shifloNormal
+shifloNormal_mode
 ```
 
 
