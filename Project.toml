@@ -1,38 +1,38 @@
 name = "DistributionFits"
 uuid = "45214091-1ed4-4409-9bcf-fdb48a05e921"
 authors = ["Thomas Wutzler <twutz@bgc-jena.mpg.de> and contributors"]
-version = "0.3.10-DEV"
+version = "0.3.10"
 
 [deps]
-Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
-FillArrays = "1a297f60-69ca-5386-bcde-b61e274b549b"
-LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 StatsAPI = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+FillArrays = "1a297f60-69ca-5386-bcde-b61e274b549b"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+
+[workspace]
+projects = ["test", "docs"]
+
+[extras]
+Optim = "429524aa-4258-5aef-a3af-852621145aeb"
+
+[compat]
+StaticArrays = "1.2"
+Statistics = "1.10"
+julia = "1.10"
+StatsAPI = "1.6"
+LinearAlgebra = "1.10"
+Distributions = "0.25.102"
+Optim = "1.7, 2.0"
+FillArrays = "1"
+Reexport = "1.2"
+StatsFuns = "0.9.15, 1, 2.2"
 
 [weakdeps]
 Optim = "429524aa-4258-5aef-a3af-852621145aeb"
 
 [extensions]
 DistributionFitsOptimExt = "Optim"
-
-[compat]
-Distributions = "0.25.102"
-FillArrays = "1"
-LinearAlgebra = "1.10"
-Optim = "1.7, 2.0"
-Reexport = "1.2"
-StaticArrays = "1.2"
-Statistics = "1.10"
-StatsAPI = "1.6"
-StatsFuns = "0.9.15, 1, 2.2"
-julia = "1.10"
-
-[extras]
-Optim = "429524aa-4258-5aef-a3af-852621145aeb"
-
-[workspace]
-projects = ["test", "docs"]
